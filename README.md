@@ -7,8 +7,9 @@
 | mail   | string  | null:false                             |
 
 ### Association
-* has_many: groups, through: group_users
+* has_many: groups, through: groups_users
 * has_many: messages
+* has_many: groups_users
 
 ## groups table
 | Column | Type    | Options                               |
@@ -16,10 +17,11 @@
 | name   | string  | index: true, null: false, unique: true|
 
 ### Association
-* has_many: users, through: group_users
+* has_many: users, through: groups_users
 * has_many: messages
+* has_many: groups_users
 
-## group_users table
+## groups_users table
 | Column   | Type    | Options           |
 |:---------|--------:|:-----------------:|
 | user_id  | integer | foreign_key: true |
