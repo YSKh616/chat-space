@@ -20,10 +20,10 @@
 * has_many: messages
 
 ## group_users table
-| Column   | Type    | Options                         |
-|:---------|--------:|:-------------------------------:|
-| user_id  | integer | unique: true, foreign_key: true |
-| group_id | integer | unique: true, foreign_key: true |
+| Column   | Type    | Options           |
+|:---------|--------:|:-----------------:|
+| user_id  | integer | foreign_key: true |
+| group_id | integer | foreign_key: true |
 
 ### Association
 * belongs_to: user
