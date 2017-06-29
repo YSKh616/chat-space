@@ -8,6 +8,8 @@ body {
 
 .contents {
   height: 100%;
+  width: 100%;
+  overflow: hidden;
   .sidebar {
     height: 100%;
     width: 300px;
@@ -25,7 +27,7 @@ body {
     &__group {
       background-color: #2f3e51;
       height: 100%;
-      padding-top: 20px;
+      // padding-top: 20px;
       color: #FFFFFF;
       &--group-name {
         font-size: 15px;
@@ -38,37 +40,38 @@ body {
 
     }
   }
-  // .chat-display {
-  //   width: calc(100vw-300px);
-  //   float: left;
-  //   height: 100%;
+  .chat-display {
+    width: calc(100% - 300px);
+    float: left;
+    height: 100%;
 
-  //   &__header {
-  //     background-color: #FFFFFF;
-  //     padding-top: 35px;
-  //     height: 60px;
-  //     &--group-name {
-  //       font-size: 20px;
-  //       color: #333333;
-  //     }
-  //     &--group-members {
-  //       font-size: 12px;
-  //       padding-top: 15px;
-  //       color: #999999;
-  //     }
-  //   }
-  //   &__main {
-  //     padding-top: 46px;
-  //     background-color: green;//#FAFAFA;
-  //     height: 100%;
-  //     &--sender {
-  //       font-size: 16px;
-  //       color: #434A54;
-  //     }
-  //     &--chat {
-  //       font-size: 14px;
-  //       color: #434A54;
-  //     }
-  //   }
-  // }
+    &__header {
+      background-color: #FFFFFF;
+      padding-top: 35px;
+      height: 60px;
+      &--group-name {
+        font-size: 20px;
+        color: #333333;
+      }
+      &--group-members {
+        font-size: 12px;
+        padding-top: 15px;
+        color: #999999;
+      }
+    }
+    &__main {
+      padding-top: 46px;
+      background-color: green;//#FAFAFA;
+      height: 100%;
+      &--sender {
+        font-size: 16px;
+        color: #434A54;
+      }
+      &--chat {
+        font-size: 14px;
+        color: #434A54;
+        padding-bottom: 40px;
+      }
+    }
+  }
 }
