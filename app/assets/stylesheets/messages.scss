@@ -89,7 +89,7 @@
       &--sender {
         font-size: 16px;
         font-weight: bold;
-        color: #434A54;
+        color: $grayish_blue;
         float: left;
       }
       span {
@@ -100,7 +100,7 @@
       &--chat {
         clear: both;
         font-size: 14px;
-        color: #434A54;
+        color: $grayish_blue;
         padding-bottom: 40px;
       }
     }
@@ -117,7 +117,7 @@
           padding-left: 10px;
           width: 100%;
           font-size: 16px;
-          color: #434A54;
+          color: $grayish_blue;
           border-style: none;
         }
       }
@@ -127,7 +127,7 @@
         background-color: $whiteColor;
         text-align: right;
         display: inline-block;
-        color: #434A54;
+        color: $grayish_blue;
         label {
           padding-right: 10px;
           display: inline-block;
