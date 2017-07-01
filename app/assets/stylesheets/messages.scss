@@ -2,7 +2,7 @@
 
 .header {
   &--message {
-    background-color: $blueColor;
+    background-color: $blue;
     color: $whiteColor;
     text-align: center;
   }
@@ -80,8 +80,8 @@
         margin-top: 28px;
         padding: 0 20px;
         float: right;
-        color: $blueColor;
-        border: 2px solid $blueColor;
+        color: $blue;
+        border: 2px solid $blue;
         font-size: 14px;
       }
     }
@@ -150,7 +150,7 @@
         input {
           width: 100px;
           border-style: none;
-          background-color: $blueColor;
+          background-color: $blue;
           color: $whiteColor;
           line-height: 50px;
         }
