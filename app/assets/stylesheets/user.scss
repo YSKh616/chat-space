@@ -1,5 +1,5 @@
 .account-page {
-  .account-page__inner {
+  &__inner {
     width: 980px;
     margin: 60px auto;
     padding: 60px;
@@ -7,7 +7,7 @@
     border: 1px solid #ddd;
     border-radius: 5px;
 
-    .account-page__inner--left, .account-page__inner--right {
+    &__inner--left, &__inner--right {
       float: left;
       width: 50%;
     }
@@ -18,7 +18,7 @@
     }
   }
 
-  .account-page__header {
+  &__header {
     h2 {
       margin-bottom: 10px;
       letter-spacing: 3px;
@@ -30,7 +30,7 @@
         display: block;
         width: 60px;
         margin-top: 5px;
-        border-bottom: 1px solid #38aef0;
+        border-bottom: 1px solid $bright_blue;
       }
     }
 
@@ -86,13 +86,13 @@
     float: left;
     margin-top: 20px;
     color: #fff;
-    background-color: #38aef0;
+    background-color: $bright_blue;
   }
 
   .field-label {
     .field_with_errors {
       display: inline-block;
-      color: #d65f4c;
+      color: $moderare_red;
       font-weight: 400;
     }
   }
@@ -109,7 +109,7 @@
         right: 0;
         bottom: 0;
         width: 5px;
-        background-color: #d65f4c;
+        background-color: $moderare_red;
       }
     }
   }
@@ -123,7 +123,7 @@
 
   h2 {
     margin-bottom: 10px;
-    color: #d65f4c;
+    color: $moderare_red;
     font-size: 14px;
   }
 
