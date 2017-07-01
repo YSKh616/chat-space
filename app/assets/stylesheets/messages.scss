@@ -1,14 +1,9 @@
-html {
-  height: 100%;
-}
-body {
-  height: 100%;
-}
+
 
 .header {
   &--message {
-    background-color: #38AEF0;
-    color: #FFFFFF;
+    background-color: $blueColor;
+    color: $whiteColor;
     text-align: center;
   }
 }
@@ -28,7 +23,7 @@ body {
       line-height: 100px;
       font-weight: bold;
       font-size: 16px;
-      color: #FFFFFF;
+      color: $whiteColor;
       &--name {
         font-size: 16px;
         float: left;
@@ -48,7 +43,7 @@ body {
       padding-left: 20px;
       padding-right: 20px;
       padding-top: 20px;
-      color: #FFFFFF;
+      color: $whiteColor;
       &--group-name {
         font-size: 15px;
         padding-bottom: 5px;
@@ -65,7 +60,7 @@ body {
     float: left;
     height: calc(100vh - 100px - 50px - 90px);
     &__header {
-      background-color: #FFFFFF;
+      background-color: $whiteColor;
       height: 100px;
       padding: 0 40px;
       border-bottom: 1px solid #eeeeee;
@@ -85,8 +80,8 @@ body {
         margin-top: 28px;
         padding: 0 20px;
         float: right;
-        color: #38AEF0;
-        border: 2px solid #38AEF0;
+        color: $blueColor;
+        border: 2px solid $blueColor;
         font-size: 14px;
       }
     }
@@ -135,7 +130,7 @@ body {
         // border: 1px solid red;
         line-height: 50px;
         width: 75px;
-        background-color: #FFFFFF;
+        background-color: $whiteColor;
         text-align: right;
         display: inline-block;
         color: #434A54;
@@ -155,8 +150,8 @@ body {
         input {
           width: 100px;
           border-style: none;
-          background-color: #38AEF0;
-          color: #FFFFFF;
+          background-color: $blueColor;
+          color: $whiteColor;
           line-height: 50px;
         }
       }
