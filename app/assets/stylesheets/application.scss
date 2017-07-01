@@ -1,14 +1,6 @@
-
-html {
-  height: 100%;
-}
-body {
-  height: 100%;
-}
-
+@import "./html-body";
 @import "./variable";
 @import "./reset";
 @import "./messages";
 @import "./maxin/clearfix";
 @import "font-awesome";
-
