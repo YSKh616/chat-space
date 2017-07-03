@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root  'messages#index'
   get 'messages' => 'messages#index'
   resources :users, only: [:edit, :update]
+  resources :groups, only: [:edit, :update, :new, :create]
 end
