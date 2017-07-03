@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+
   def edit
     @user = User.find(params[:id])
   end
@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def update
     user = User.find(params[:id])
     if user.update(user_params)
-      redirect_to root_path
+      redirect_to root_path, notice: "アカウント情報を変更しました。"
     else
       render :edit
     end
