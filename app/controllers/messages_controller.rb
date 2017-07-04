@@ -7,7 +7,6 @@ class MessagesController < ApplicationController
 
   def set_group
     @group = current_user.groups
-    @group_id = current_user.group_ids
   end
 
 end
