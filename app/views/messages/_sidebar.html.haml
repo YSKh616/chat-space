@@ -1,7 +1,7 @@
 %div.sidebar
   %div.sidebar__user
     %div.sidebar__user--name
-      Yusuke Hibino
+      = current_user.name
     %div.sidebar__user--edit
       = link_to new_group_path do
         %i.fa.fa-pencil-square-o.fa-lg
