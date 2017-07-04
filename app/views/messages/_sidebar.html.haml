@@ -9,8 +9,7 @@
         %i.fa.fa-cog.fa-lg
 
   %div.sidebar__group
-    %p.sidebar__group--group-name aaaaaaaaa
-    %p.sidebar__group--group-new-message まだメッセージはありません。
+    - @group.each do |g|
+      %p.sidebar__group--group-name= g.name
+      %p.sidebar__group--group-new-message まだメッセージはありません。
 
-    %p.sidebar__group--group-name aaaaaaaaa
-    %p.sidebar__group--group-new-message まだメッセージはありません。
