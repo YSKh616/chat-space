@@ -1,4 +1,8 @@
 class GroupsController < ApplicationController
+  def index
+    @group = Group.all
+  end
+
   def new
     @group = Group.new
   end
@@ -21,7 +25,7 @@ class GroupsController < ApplicationController
     if @group.update(group_params)
       redirect_to root_path, notice: "グループが更新されました"
     else
-      render :new
+      render :edit
     end
   end
 
