@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
   private
 
   def set_group
-    @group = current_user.groups
+    @groups = current_user.groups
   end
 
 end

@@ -1,6 +1,8 @@
 class GroupsController < ApplicationController
+  before_action :set_group_find, only: [:edit, :update]
+
   def index
-    @group = current_user.groups
+    @groups = current_user.groups
   end
 
   def new
@@ -17,11 +19,9 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    set_group_find
   end
 
   def update
-    set_group_find
     if @group.update(group_params)
       redirect_to root_path, notice: "グループが更新されました"
     else
