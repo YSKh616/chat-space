@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
+  before_action :set_group, only: [:index]
+
   def index
-    set_group
   end
 
   private
