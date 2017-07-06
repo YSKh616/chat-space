@@ -12,8 +12,5 @@
     - @groups.each do |g|
       %p.sidebar__group--group-name= g.name
       %p.sidebar__group--group-new-message
-        - unless g.messages.empty?
-          = g.messages.last.body
-        - else
-          まだメッセージはありません。
+        = g.find_last_message
 
