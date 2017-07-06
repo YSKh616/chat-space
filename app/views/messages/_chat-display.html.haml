@@ -2,8 +2,12 @@
   %div.chat-display__header
     = link_to edit_group_path(1) do
       %div.chat-display__header--edit Edit
-    %h1.chat-display__header--group-name sampleグループ
-    %p.chat-display__header--group-members Members: Yusuke Hibino
+    %h1.chat-display__header--group-name
+      = "#{@group.name}"
+    %p.chat-display__header--group-members
+      Members:
+      - @group.users.each do |g|
+        = "#{g.name}"
 
 
   %div.chat-display__main
