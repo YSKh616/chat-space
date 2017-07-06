@@ -9,7 +9,8 @@
         %i.fa.fa-cog.fa-lg
 
   %div.sidebar__group
-    - @groups.each do |g|
-      %p.sidebar__group--group-name= g.name
-      %p.sidebar__group--group-new-message まだメッセージはありません。
+    - @groups.each do |group|
+      %p.sidebar__group--group-name= group.name
+      %p.sidebar__group--group-new-message
+        = group.find_last_message
 
