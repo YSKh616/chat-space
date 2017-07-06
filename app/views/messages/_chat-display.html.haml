@@ -19,14 +19,10 @@
     = form_for [@group, @message] do |f|
       %div.chat-display__form--textbox
         = f.text_field :body, placeholder: "type a message", class: "text"
-        / %input.text{placeholder:"type a message", type:"text"}
       %div.chat-display__form--picture-button
-        / %label
         = f.label :image do
           = f.file_field :image, class:"image-upload"
           %p #{fa_icon "picture-o"}
-          / %i.fa.fa-picture-o.picture
-          / %input.image-upload{type:"file", accept:"image/*"}
       %div.chat-display__form--send-button
         = f.submit "Send"
         = f.hidden_field :group_id, value:"#{@group.id}"
