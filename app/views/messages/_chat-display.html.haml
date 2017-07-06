@@ -1,6 +1,6 @@
 %div.chat-display
   %div.chat-display__header
-    = link_to edit_group_path(@groups[1]) do
+    = link_to edit_group_path(1) do
       %div.chat-display__header--edit Edit
     %h1.chat-display__header--group-name sampleグループ
     %p.chat-display__header--group-members Members: Yusuke Hibino
@@ -16,11 +16,13 @@
     %p.chat-display__main--chat bbbbbbbbbbb
 
   %div.chat-display__form
-    %div.chat-display__form--textbox
-      %input.text{placeholder:"type a message", type:"text"}
-    %div.chat-display__form--picture-button
-      %label
-        %i.fa.fa-picture-o.picture
-        %input.image-upload{type:"file", accept:"image/*"}
-    %div.chat-display__form--send-button
-      %input{type:"submit",value:"Send"}
+    = form_for [@group, @message] do |f|
+      %div.chat-display__form--textbox
+        = f.text_field :body, placeholder: "type a message", class: "text"
+      %div.chat-display__form--picture-button
+        = f.label :image do
+          = f.file_field :image, class:"image-upload"
+          %p #{fa_icon "picture-o"}
+      %div.chat-display__form--send-button
+        = f.submit "Send"
+        = f.hidden_field :group_id, value:"#{@group.id}"
