@@ -12,7 +12,6 @@
     - @groups.each do |g|
       %p.sidebar__group--group-name= g.name
       %p.sidebar__group--group-new-message
-        / # - binding.pry
         - unless g.messages.empty?
           = g.messages.last.body
         - else
