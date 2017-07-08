@@ -4,7 +4,6 @@ describe Message do
   describe '#create' do
       example "メッセージを保存できるとき" do
         message = build(:message)
-        # binding.pry
         expect(message).to be_valid
       end
 
