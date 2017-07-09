@@ -8,9 +8,9 @@ class MessagesController < ApplicationController
   def create
     @message = current_user.messages.new(message_params)
     if @message.save
-      redirect_to group_messages_path(@message.group_id), notice: "メッセージが送信されました"
+      redirect_to group_messages_path(params[:group_id]), notice: "メッセージが送信されました"
     else
-      @group = Group.find(current_user.id)
+      @group = Group.find(params[:group_id])
       @groups = current_user.groups
       @messages = @group.messages.includes(:user)
       flash[:alert] = 'メッセージを入力してください'
@@ -22,7 +22,7 @@ class MessagesController < ApplicationController
   private
 
   def set_group
-    @group = Group.find(current_user.id)
+    @group = Group.find(params[:group_id])
     @groups = current_user.groups
     @message = Message.new
   end
