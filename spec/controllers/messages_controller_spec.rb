@@ -48,23 +48,39 @@ describe MessagesController, type: :controller do
         login_user user
       end
 
+      subject {
+        Proc.new {
+          post :create, params:{message: attributes_for(:message, user_id: user.id, group_id: group.id), group_id: group.id}
+        }
+      }
+
       example "メッセージ正常保存の検証" do
-        expect{post :create, params:{message: attributes_for(:message, user_id: user.id, group_id: group.id), group_id: group.id}}.to change(Message, :count).by(1)
+        expect{subject.call}.to change(Message, :count).by(1)
       end
 
       example "投稿ページへのリダイレクト検証" do
-        post :create, params:{message: attributes_for(:message, user_id: user.id, group_id: group.id), group_id: group.id}
+        subject.call
         expect(response).to redirect_to group_messages_path(group)
       end
+    end
+
+    context "正常保存できない場合" do
+      before do
+        login_user user
+      end
+
+      subject {
+        Proc.new {
+          post :create, params: { group_id: group, message: attributes_for(:message, body: nil, image: nil) }
+        }
+      }
 
       example "メッセージの保存失敗の検証" do
-        expect do
-          post :create, params: { group_id: group, message: attributes_for(:message, body: nil, image: nil) }
-        end.to change(Message, :count).by(0)
+        expect{subject.call}.to change(Message, :count).by(0)
       end
 
       example "メッセージボックスが空のときの検証" do
-        post :create, params: { group_id: group, message: attributes_for(:message, body: nil, image: nil) }
+        subject.call
         expect(flash[:alert]).not_to be_empty
       end
     end
