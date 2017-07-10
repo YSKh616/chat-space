@@ -49,17 +49,15 @@ describe MessagesController, type: :controller do
       end
 
       subject {
-        Proc.new {
-          post :create, params:{message: attributes_for(:message, user_id: user.id, group_id: group.id), group_id: group.id}
-        }
+        post :create, params:{message: attributes_for(:message, user_id: user.id, group_id: group.id), group_id: group.id}
       }
 
       example "メッセージ正常保存の検証" do
-        expect{subject.call}.to change(Message, :count).by(1)
+        expect{subject}.to change(Message, :count).by(1)
       end
 
       example "投稿ページへのリダイレクト検証" do
-        subject.call
+        subject
         expect(response).to redirect_to group_messages_path(group)
       end
     end
@@ -70,17 +68,15 @@ describe MessagesController, type: :controller do
       end
 
       subject {
-        Proc.new {
-          post :create, params: { group_id: group, message: attributes_for(:message, body: nil, image: nil) }
-        }
+        post :create, params: { group_id: group, message: attributes_for(:message, body: nil, image: nil) }
       }
 
       example "メッセージの保存失敗の検証" do
-        expect{subject.call}.to change(Message, :count).by(0)
+        expect{subject}.to change(Message, :count).by(0)
       end
 
       example "メッセージボックスが空のときの検証" do
-        subject.call
+        subject
         expect(flash[:alert]).not_to be_empty
       end
     end
