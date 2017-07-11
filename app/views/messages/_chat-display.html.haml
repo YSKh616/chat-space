@@ -17,10 +17,11 @@
         = "#{m.created_at}"
       %p.chat-display__main--chat
         = "#{m.body}"
+      %p.chat-display__main--chat-image
         = image_tag "#{m.image}"
 
   %div.chat-display__form
-    = form_for [@group, @message] do |f|
+    = form_for [@group, @message], html: { id: "send_message"} do |f|
       %div.chat-display__form--textbox
         = f.text_field :body, placeholder: "type a message", class: "text"
       %div.chat-display__form--picture-button
