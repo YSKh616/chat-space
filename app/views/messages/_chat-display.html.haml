@@ -11,14 +11,15 @@
 
   %div.chat-display__main
     - @messages.each do |m|
-      %p.chat-display__main--sender
-        = "#{m.user.name}"
-      %span
-        = "#{m.created_at}"
-      %p.chat-display__main--chat
-        = "#{m.body}"
-      %p.chat-display__main--chat-image
-        = image_tag "#{m.image}"
+      %div.chat-display__main__message
+        %p.chat-display__main__message--sender
+          = "#{m.user.name}"
+        %span
+          = "#{m.created_at}"
+        %p.chat-display__main__message--chat
+          = "#{m.body}"
+        %p.chat-display__main__message--chat-image
+          = image_tag "#{m.image}"
 
   %div.chat-display__form
     = form_for [@group, @message], html: { id: "send_message"} do |f|
@@ -29,5 +30,5 @@
           = f.file_field :image, class:"image-upload"
           %p #{fa_icon "picture-o"}
       %div.chat-display__form--send-button
-        = f.submit "Send"
+        = f.submit "Send", class: "message__button"
         = f.hidden_field :group_id, value:"#{@group.id}"
