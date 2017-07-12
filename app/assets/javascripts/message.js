@@ -18,9 +18,6 @@ $(function() {
     var url = $(this).prop("action");
     var form = $('#send_message').get()[0];
     var formData = new FormData(form);
-    // $('.chat-display__main').animate({scrollTop: $('.chat-display__main').height()}, 'fast');
-    // $('.chat-display__main').animate({scrollTop: $('.chat-display__main').scrollHeight}, 'fast');
-    // console.log(formData);
     $.ajax({
       type: 'POST',
       url: url,
