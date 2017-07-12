@@ -38,7 +38,7 @@ $(function() {
       $(".message__button").prop("disabled",false);
     })
     .fail(function(){
-      alert('error');
+      window.alert('テキストまたは画像ファイルを送信してください。');
     })
   });
 });
