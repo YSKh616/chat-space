@@ -1,14 +1,18 @@
 class MessagesController < ApplicationController
-  before_action :set_group, only: [:index]
+  before_action :set_group, only: [:index, :create]
 
   def index
     @messages = @group.messages.includes(:user)
+    @message = Message.new
   end
 
   def create
     @message = current_user.messages.new(message_params)
     if @message.save
-      redirect_to group_messages_path(params[:group_id]), notice: "メッセージが送信されました"
+      respond_to do |format|
+        format.html { redirect_to group_messages_path(@group) }
+        format.json
+      end
     else
       @group = Group.find(params[:group_id])
       @groups = current_user.groups
@@ -24,7 +28,6 @@ class MessagesController < ApplicationController
   def set_group
     @group = Group.find(params[:group_id])
     @groups = current_user.groups
-    @message = Message.new
   end
 
   def message_params

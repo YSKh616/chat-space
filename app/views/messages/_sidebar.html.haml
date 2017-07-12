@@ -10,7 +10,8 @@
 
   %div.sidebar__group
     - @groups.each do |group|
-      %p.sidebar__group--group-name= group.name
+      %p.sidebar__group--group-name
+        = link_to "#{group.name}",group_messages_path(group), class: "link"
       %p.sidebar__group--group-new-message
         = group.find_last_message
 

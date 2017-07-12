@@ -1,6 +1,6 @@
 %div.chat-display
   %div.chat-display__header
-    = link_to edit_group_path(1) do
+    = link_to edit_group_path(@group.id) do
       %div.chat-display__header--edit Edit
     %h1.chat-display__header--group-name
       = "#{@group.name}"
@@ -11,16 +11,18 @@
 
   %div.chat-display__main
     - @messages.each do |m|
-      %p.chat-display__main--sender
-        = "#{m.user.name}"
-      %span
-        = "#{m.created_at}"
-      %p.chat-display__main--chat
-        = "#{m.body}"
-        = image_tag "#{m.image}"
+      %div.chat-display__main__message
+        %p.chat-display__main__message--sender
+          = m.user.name
+        %span
+          = m.created_at
+        %p.chat-display__main__message--chat
+          = m.body
+        %p.chat-display__main__message--chat-image
+          = image_tag m.image
 
   %div.chat-display__form
-    = form_for [@group, @message] do |f|
+    = form_for [@group, @message], html: { id: "send_message"} do |f|
       %div.chat-display__form--textbox
         = f.text_field :body, placeholder: "type a message", class: "text"
       %div.chat-display__form--picture-button
@@ -28,5 +30,5 @@
           = f.file_field :image, class:"image-upload"
           %p #{fa_icon "picture-o"}
       %div.chat-display__form--send-button
-        = f.submit "Send"
+        = f.submit "Send", class: "message__button"
         = f.hidden_field :group_id, value:"#{@group.id}"
